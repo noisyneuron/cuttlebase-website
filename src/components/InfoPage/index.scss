@@ -1,0 +1,122 @@
+@import "../../layout/precompile-data";
+
+.infopage {
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .anatomy {
+    img {
+      border-bottom: 1px dashed black;
+      margin-bottom: $space2;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .planes {
+    align-content: center;
+    padding: $space2 0 $space4;
+  }
+
+  .plane {
+    width: getWidth(6, 48);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    p {
+      margin-bottom: $space2;
+    }
+  }
+
+  .subject__line {
+    display: flex;
+    flex-direction: row;
+    span:first-child {
+      width: getWidth(7, 48);
+    }
+  }
+
+  .summary {
+    padding: $space4 0 $space5;
+    .column {
+      width: 31%;
+      &:last-child {
+        border: none;
+      }
+      .title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          margin-left: $space3;
+          height: getHeight(14);
+        }
+      }
+    }
+  }
+
+  section.last {
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  .section__content {
+    padding: $space3 0;
+  }
+}
+
+.-mobile,
+.-tablet {
+  .infopage {
+    section {
+      border-bottom: none;
+    }
+
+    .section__header {
+      border-top: 1px solid black;
+    }
+
+    .planes {
+      padding-bottom: $space2;
+      .plane {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: $space2;
+        img {
+          width: 40%;
+          height: auto;
+          display: block;
+          align-self: center;
+        }
+      }
+    }
+
+    .subject__line {
+      width: 100%;
+      span {
+        width: auto;
+        flex: 1 1 0;
+      }
+    }
+
+    .summary {
+      padding: $space2 0;
+      .column {
+        width: 100%;
+        padding-bottom: $space3;
+        margin-bottom: $space2;
+        border-bottom: 1px dashed black;
+        &:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+          // padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

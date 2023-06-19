@@ -1,0 +1,151 @@
+@import "../../layout/precompile-data";
+
+.developmentpage {
+  .sections {
+    align-items: stretch;
+    margin-bottom: $space6;
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: getWidth(15, 48);
+      margin-left: getWidth(1, 48);
+      .heading {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: $space3;
+        span {
+          margin-right: $space4;
+        }
+      }
+    }
+    .media {
+      margin-top: $space6;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .glossary {
+    box-shadow: borderTop(1px, white), borderBottom(1px, white);
+    padding: $space3;
+    margin-bottom: $space6;
+    position: sticky;
+    top: $headerLarge - 1px;
+    background-color: black;
+    z-index: 4;
+    .scale {
+      margin-right: $space4;
+      align-items: center;
+      .scale-bar {
+        height: 1px;
+        width: 50px;
+        background-color: white;
+        margin: 0 $space1;
+      }
+    }
+  }
+
+  .series {
+    margin-bottom: $space6;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .stages {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 24px;
+    .column {
+      border-bottom: 1px dashed white;
+      margin-bottom: $space6;
+      position: relative;
+    }
+    .text-column {
+      display: flex;
+      flex-direction: column;
+      h3 {
+        margin-bottom: $space3;
+      }
+    }
+    .icon {
+      width: $space6;
+      margin-top: $space4;
+      align-self: flex-end;
+    }
+    .image-column {
+      .heading {
+        border-bottom: 1px solid white;
+        padding-bottom: $space1;
+        margin-bottom: $space2;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+
+  .citation {
+    border-bottom: none;
+    margin-top: $space5;
+    .section__header {
+      border-bottom: 1px solid white;
+      border-top: 1px solid white;
+      margin-bottom: $space3;
+    }
+  }
+}
+
+.-mobile, .-tablet {
+  .developmentpage {
+    .sections {
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      .column {
+        width: 100%;
+        padding-bottom: $space4;
+        margin-bottom: $space4;
+        border-bottom: 1px dashed white;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .glossary {
+      box-shadow: none;
+      top: 3px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      padding-top: $space2;
+      .inset {
+        display: block;
+      }
+      .info {
+        box-shadow: borderTop(1px, white), borderBottom(1px, white);
+        padding: $space1 0;
+        margin: $space2 0;
+        display: block;
+      }
+      .scale {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+    }
+
+    .stages {
+      display: block;
+    }
+
+    .text-column {
+      padding-bottom: $space4;
+    }
+  }
+} 

@@ -1,0 +1,63 @@
+
+$width: 1440px;
+$gutter: 8px;
+$inset: 24px;
+$baseline: 4px;
+
+$space1: 2 * $baseline;;
+$space2: 2 * $space1;
+$space3: 3 * $space1;
+$space4: 4 * $space1;
+$space5: 6 * $space1;
+$space6: 7 * $space1;
+$space7: 8.5 * $space1;
+$space8: 14 * $space1;
+$space9: 15 * $space1;
+$space10: 18 * $space1;
+
+$headerLarge: 88px;
+$headerSmall: 62px;
+
+$transition: 0.15s ease-out;
+
+$fixedVerticalPadding: $space3;
+
+@function getGridWidth() {
+  @return calc(min(#{$width}, 100vw) - 2 * #{$inset});
+}
+
+@function getColumnWidth($grid) {
+  $gridWidth: getGridWidth();
+  $gutterWidth: $gutter * ($grid - 1);
+  @return calc( (#{$gridWidth} - #{$gutterWidth}) / #{$grid} );
+}
+
+@function getWidth($columns, $grid) {
+  $colWidth: getColumnWidth($grid);
+  $gutterWidth: $gutter * ($columns - 1);
+  @return calc( (#{$columns} * #{$colWidth}) + #{$gutterWidth});
+}
+
+@function getHeight($lines) {
+  @return $lines * $baseline;
+} 
+
+@function borderTop($width, $color) {
+  @return 0 $width 0 $color inset;
+}
+
+@function borderBottom($width, $color) {
+  @return 0 (-$width) 0 $color inset;
+}
+
+@function borderLeft($width, $color) {
+  @return $width 0 0 $color inset;
+}
+
+@function borderRight($width, $color) {
+  @return (-$width) 0 0 $color inset;
+}
+
+@function borderAll($width, $color) {
+  @return borderTop($width, $color), borderBottom($width, $color), borderLeft($width, $color), borderRight($width, $color);
+}

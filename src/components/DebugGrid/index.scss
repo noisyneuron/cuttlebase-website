@@ -1,0 +1,42 @@
+@import '../../layout/precompile-data';
+
+.debug__grid-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  &.-hidden {
+    display: none;
+  }
+}
+
+.debug__grid-container {
+  width: Min($width, 100vw); /* hack to prevent sass recognizing min */
+  height: 100vh;
+  background-color: rgba(132,132,132,0.1);
+}
+
+.debug__grid {
+  width: getGridWidth();
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.4) 0,
+    rgba(255, 255, 255, 0.4) getColumnWidth(48),
+    rgba(255, 255, 255, 0.2) getColumnWidth(48),
+    rgba(255, 255, 255, 0.2) calc(#{getColumnWidth(48)} + #{$gutter})
+  );
+}
+
+.debug__grid-btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100001;
+}

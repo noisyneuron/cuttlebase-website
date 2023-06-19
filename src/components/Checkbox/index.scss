@@ -1,0 +1,74 @@
+@import "../../layout/precompile-data";
+
+.checkbox__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  
+  .checkbox {
+    width: $space2;
+    height: $space2;
+    flex: 0 0 $space2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all $transition;
+    cursor: pointer;
+  }
+
+  .checkbox__circle {
+    width: $space1;
+    height: $space1;
+    border-radius: 50%;
+    transition: all $transition;
+  }
+
+  &.-unchecked {
+    .checkbox {
+      background-color: transparent;
+      .checkbox__circle {
+        box-shadow: inset 0px 0px 1px 1px white;
+      }
+    }
+  }
+
+  &.-checked {
+    .checkbox {
+      background-color: transparent;
+      .checkbox__circle {
+        background-color: rgba(255, 0, 0, 1);
+      }
+    }
+  }
+
+  &.-indeterminate {
+    .checkbox {
+      background-color: transparent;
+      .checkbox__circle {
+        box-shadow: inset 0px 0px 1px 1px red;
+      }
+    }
+  }
+
+  &:hover {
+    .checkbox {
+      background-color: rgba(255, 0, 0, 0.35) !important;
+      .checkbox__circle {
+        background-color: rgba(255, 0, 0, 1) !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  &:active {
+    .checkbox {
+      background-color: rgba(255, 0, 0, 0.5) !important;
+      .checkbox__circle {
+        background-color: rgba(255, 0, 0, 1) !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+}

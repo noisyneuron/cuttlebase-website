@@ -1,0 +1,87 @@
+@import "../../layout/precompile-data";
+
+.teampage {
+  
+  .page__header {
+    p {
+      margin: $space1 0;
+      max-width: 570px;
+    }
+    .guide {
+      border-top: 1px dashed black;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: $space3;
+      .item {
+        display: flex;
+        align-items: center;
+      }
+      img {
+        height: getHeight(14);
+        margin-right: $space1;
+      }
+      span {
+        margin-right: $space5;
+      }
+    }
+  }
+  .person {
+    border-top: 1px dashed black;
+    padding-top: $space2;
+    margin-bottom: $space2;
+    align-items: center;
+    &.top {
+      border-top: none;
+    }
+  }
+
+  .column {
+    width: getWidth(15,48);
+    img {
+      height: getHeight(14);
+      visibility: hidden;
+      &.visible {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.-mobile, .-tablet {
+  .teampage {
+
+    .page__header p {
+      width: 100%;
+    }
+
+    .guide {
+      flex-direction: column;
+      align-items: flex-start;
+      border-top: none;
+      .item {
+        width: 100%;
+        border-bottom: 1px dashed black;
+      }
+    }
+
+    .person.top {
+      display: none;
+    }
+
+    .person {
+      flex-direction: column;
+      align-items: flex-start;
+      .column {
+        width: 100%;
+        img {
+          display: none;
+          &.visible {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+  }
+}

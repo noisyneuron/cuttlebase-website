@@ -1,0 +1,151 @@
+@import "../../layout/precompile-data";
+
+.histology.bar.right {
+  .controls.top {
+    right: 0;
+    top: 0;
+    bottom: auto;
+    .control__element {
+      padding: 0;
+      border-bottom: none;
+      &:last-child {
+        border-top: 1px dashed white;
+        border-bottom: 1px dashed white;
+        padding-top: $space1;
+        // padding-bottom: $space1;
+        margin-top: $space1;
+      }
+    }
+    .plus {
+      padding: 0;
+      text-align: right;
+      line-height: 1;
+      position: relative;
+      top: -5px;
+      right: 8px;
+    }
+  }
+  .radio__group .icon__wrapper {
+    margin-bottom: $space1;
+  }
+}
+
+.histology-section {
+  .zoom__wrapper {
+    overflow: hidden;
+    height: 100%;
+    flex-grow: 1;
+    position: relative;
+    &.-grabbable {
+      cursor: grab;
+    }
+  }
+
+  .zoomer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // transition: transform-origin 0.25s ease;
+  }
+
+  .image__canvas {
+    height: calc(100% - #{getHeight(27)});
+    width: 100%;
+    position: relative;
+    margin: getHeight(1) 0;
+  }
+
+  .histology__nav {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    cursor: pointer;
+    width: 10px;
+    height: 25px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    &.prev {
+      left: -10px;
+    }
+    &.next {
+      right: -10px;
+    }
+  }
+
+  .thumbnails {
+    height: getHeight(15);
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+
+    .thumbnail {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      width: $space6;
+      flex-shrink: 0;
+      cursor: pointer;
+      &.-active {
+        .img__wrapper {
+          opacity: 1;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .img__wrapper {
+      opacity: 0.35;
+      max-height: getHeight(12);
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    p {
+      margin: 0rem;
+      // margin-top: $space1;
+      font-size: 0.65rem;
+      line-height: 1;
+    }
+  }
+
+  .scalebar {
+    height: getHeight(10);
+    width: 100px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .ruler,
+    img {
+      width: 100%;
+    }
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      text-align: center;
+      line-height: 1;
+      margin-bottom: getHeight(2);
+    }
+  }
+}

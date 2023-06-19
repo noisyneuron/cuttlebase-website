@@ -1,0 +1,28 @@
+@import "../../layout/precompile-data";
+
+.genomepage {
+  // min-height: calc(100vh - 588px); // header + footer + footer margin-top
+  .subject__line {
+      display: flex;
+      flex-direction: row;
+  
+      span:first-child {
+        width: getWidth(7, 48);
+      }
+    }
+
+  section {
+    padding: $space3 0;
+    border-bottom: 1px dashed black;
+  }
+
+  section.last {
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  section.last {
+    box-shadow: none;
+    border-bottom: none;
+  }
+}

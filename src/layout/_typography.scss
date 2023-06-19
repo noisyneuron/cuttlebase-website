@@ -1,0 +1,73 @@
+@import "precompile-data";
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&family=Nunito+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap");
+
+// font-family: 'Nunito Sans', sans-serif;
+// font-family: 'Merriweather', serif;
+
+@mixin serif {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  &.-bold {
+    font-weight: 700;
+  }
+}
+
+@mixin sansserif {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  &.-bold {
+    font-weight: 700;
+  }
+}
+
+h1 {
+  @include serif();
+  font-size: 16 * $baseline;
+  line-height: 18 * $baseline;
+}
+
+h2 {
+  @include serif();
+  font-size: 8.5 * $baseline;
+  line-height: 10 * $baseline;
+}
+
+h3 {
+  @include serif();
+  font-size: 5.5 * $baseline;
+  line-height: 8 * $baseline;
+}
+
+h4 {
+  @include sansserif();
+  font-size: 6 * $baseline;
+  line-height: 12 * $baseline;
+}
+
+h5 {
+  @include sansserif();
+  font-size: 5 * $baseline;
+  line-height: 7 * $baseline;
+}
+
+p,
+span,
+a {
+  @include sansserif();
+  font-size: 4 * $baseline;
+  line-height: 6 * $baseline;
+}
+
+.-serif {
+  @include serif();
+}
+
+.-small {
+  font-size: 3.5 * $baseline;
+  line-height: 5 * $baseline;
+}
+
+p a {
+  text-decoration: underline;
+}
+

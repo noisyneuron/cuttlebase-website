@@ -1,0 +1,160 @@
+@use './precompile-data';
+@import "./resets";
+@import "./typography";
+
+html, body {
+  background-color: black;
+  overscroll-behavior: none;
+}
+
+.theme-light {
+  --theme-bg: #dadada;
+  --theme-color: black;
+  .-invert__light {
+    filter: invert(100%);
+  }
+}
+
+.theme-dark {
+  --theme-bg: black;
+  --theme-color: white;
+  .-invert__dark {
+    filter: invert(100%);
+  }
+}
+
+.page {
+  min-height: 100vh;
+  background-color: var(--theme-bg);
+  color: var(--theme-color);
+  padding-top: $headerLarge;
+}
+.-mobile,
+.-tablet {
+  .page {
+    padding-top: $headerSmall;
+    min-height: 0;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: getGridWidth();
+  position: relative;
+}
+
+.inset {
+  width: getWidth(46, 48);
+  margin: 0 auto;
+  position: relative;
+}
+
+.-tablet,
+.-mobile {
+  .inset {
+    width: getGridWidth();
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.halfColumn {
+  width: getWidth(22, 48);
+}
+.-mobile, .-tablet {
+  .flex {
+    flex-direction: column;
+  }
+  .halfColumn {
+    width: 100%;
+  }
+}
+
+section {
+  border-bottom: 1px solid var(--theme-color);
+}
+
+.control__element {
+  border-bottom: 1px dashed var(--theme-color);
+  padding: 10px 0 8px;
+  p {
+    margin-top: 6px;
+    line-height: 1;
+  }
+  .slider p:first-child {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .toggle__wrapper {
+    margin-top: 1px;
+  }
+}
+
+
+.fixed {
+  width: calc(100vw - #{2 * $inset});
+  height: calc(100vh - #{$headerLarge});
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  padding: $fixedVerticalPadding 0;
+
+  .bar {
+    position: relative;
+    &.left {
+      width: 250px;
+    }
+    &.right {
+      width: 120px;
+    }
+  }
+
+  .main {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .content {
+    padding: 0 $space4;
+    width: 100%;
+    height: 100%;
+  }
+}
+.-mobile, .-tablet {
+  .fixed {
+    height: calc(100vh - #{$headerSmall} - 250px);
+  }
+}
+
+.scrollable {
+  overflow: auto;
+  direction: rtl;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: white;
+    border: 2px solid black;
+  }
+}
+
+.scrollable__content {
+  direction: ltr;
+}

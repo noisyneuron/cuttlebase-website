@@ -1,0 +1,47 @@
+@import "../../layout/precompile-data";
+
+.slider {
+  width: 70%;
+  margin-left: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  .slider__input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: getHeight(3);
+    box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.7);
+    border-radius: getHeight(1.5);
+    background: black;
+    outline: none;
+    transition: all $transition;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: getHeight(3);
+      height: getHeight(3);
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: -205px 0 0 200px rgba(255, 255, 255, 0.5);
+    }
+
+    &::-moz-range-thumb {
+      width: getHeight(3);
+      height: getHeight(3);
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
